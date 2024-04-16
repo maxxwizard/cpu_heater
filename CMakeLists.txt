@@ -45,5 +45,5 @@ else ()
 endif ()
 
 # ------------------------------------------------------------------------------
-# build example binaries
-add_subdirectory(foo)
+# build binaries
+add_subdirectory(src)
