@@ -44,6 +44,8 @@ else ()
 
 endif ()
 
+message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
+
 # ------------------------------------------------------------------------------
 # build binaries
 add_subdirectory(src)
