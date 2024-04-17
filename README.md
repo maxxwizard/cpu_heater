@@ -2,14 +2,7 @@
 Tool for running low-priority (SCHED_IDLE) threads in a process. Originally written by @gnuthor.
 
 # build
-Any G++ toolchain should work.
-
-On MacOS:
-```
-$ make
-g++ -g -Wall -o cpu_heater main.cpp
-Build complete
-```
+Use [CMake](https://github.com/gflags/gflags/blob/master/INSTALL.md#compiling-the-source-code-with-cmake) to configure the build tree and then `make` to build.
 
 # run
 Run a single thread forever:
