@@ -17,6 +17,7 @@ using namespace std::chrono_literals;
 DEFINE_uint64(num_heater_threads,
               std::thread::hardware_concurrency(),
               "How many threads to run");
+DEFINE_uint64(max_run_time_secs, 60, "How long to run for, 0s = forever");
 DEFINE_uint64(thread_num_loops,
               1000,
               "Number of loops to run before next sleep");
@@ -104,7 +105,8 @@ int main(int argc, char** argv) {
     std::this_thread::sleep_for(1s);
 
     std::cout << "Ran for " << duration_cast<seconds>(system_clock::now() - startTime).count() << " seconds" << std::endl;
-  } while (gSignalStatus == 0);
+  } while (gSignalStatus == 0 &&
+            (FLAGS_max_run_time_secs == 0 || duration_cast<seconds>(system_clock::now() - startTime) < seconds(FLAGS_max_run_time_secs)));
 
   for (auto& thread : threads) {
     if (!thread.request_stop()) {

@@ -15,6 +15,6 @@ $ cmake -DCMAKE_CXX_STANDARD=20 .
 
 $ make
 
-# Run a single thread on each core forever
-$ src/cpu_heater --thread_num_loops=1
+# Run a single thread on each core for 5 minutes
+$ src/cpu_heater --thread_num_loops=1 --max_run_time_secs=300
 ```
